@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:musicapp/cubit/cubit.dart';
-import 'package:musicapp/cubit/states.dart';
-import 'package:musicapp/modules/homescreen.dart';
+import 'package:musicapp/blocobserver.dart';
+import 'package:musicapp/layout/cubit/cubit.dart';
+import 'package:musicapp/layout/cubit/states.dart';
+import 'package:musicapp/layout/bottomnavigation.dart';
 
 void main() {
+  Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) => MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: MusicApp(),
+          home: Items(),
         ),
       ),
     );
